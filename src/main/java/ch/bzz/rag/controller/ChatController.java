@@ -20,8 +20,7 @@ public class ChatController {
     @PostMapping
     public ResponseEntity<?> chat(@RequestBody ChatRequest request) {
         try {
-            // TODO: implement logic
-            ChatAnswer response = null;
+            ChatAnswer response = chatService.chat(request.mode, request.question());
 
             return ResponseEntity.ok(response);
         } catch (Exception e) {

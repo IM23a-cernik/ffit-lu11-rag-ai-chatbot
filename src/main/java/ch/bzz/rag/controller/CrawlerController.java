@@ -18,7 +18,7 @@ public class CrawlerController {
     @PostMapping("/wiki")
     public ResponseEntity<String> crawl(@RequestBody WikiCrawlRequest request) {
         try {
-            // TODO: implement logic
+            pipeline.runPipeline(request.namespaceUrl, request.regexFilter, request.overwriteExisting);
             return ResponseEntity.ok("Crawling finished successfully");
         } catch (Exception e) {
             log.error("Error during crawling: {}", e.getMessage(), e);
